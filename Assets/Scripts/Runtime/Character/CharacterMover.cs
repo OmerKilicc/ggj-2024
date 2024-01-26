@@ -23,7 +23,7 @@ public class CharacterMover : MonoBehaviour, IMover
 
     public void Move(Vector2 vector)
     {
-        _move = vector;
+        _move = new Vector3(vector.x, 0f, vector.y);
     }
 
     private void MoveCharacter()
@@ -41,10 +41,8 @@ public class CharacterMover : MonoBehaviour, IMover
         if (_move == Vector3.zero)
             return;
 
-        Vector3 lookDir = new Vector3(_move.x, 0, _move.y);
-
         float speed = _rotateSpeed * Time.deltaTime;
 
-        _controller.transform.forward = Vector3.Lerp(_controller.transform.forward, lookDir, speed);
+        _controller.transform.forward = Vector3.Lerp(_controller.transform.forward, _move, speed);
     }
 }
