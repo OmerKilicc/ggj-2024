@@ -48,12 +48,10 @@ public class PlayerDamageHandler : MonoBehaviour
 		SpawnPlayerAtHut();
 	}
 
-	private void SpawnPlayerAtHut()
+	private async void SpawnPlayerAtHut()
 	{
-		//TODO: get to throne room scene to spawn
-		/*
-		transform.position = spawnPoint.position;
-		LevelManager.ReturenToThroneRoom();
-		*/
+
+		await LevelManager.Instance.ReturnToThroneRoom();
+		
 	}
 }
