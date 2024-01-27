@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class RangedEnemyAttackState : MonoBehaviour, IState
 {
-    [SerializeField] private NavMeshAgent _agent;
+	[Tooltip("Event to listen when player damaged")]
+	public static event Action OnPlayerDamage;
+
+	[SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Component _jokeComponent;
     private IJoke _joke;
 
@@ -42,6 +46,7 @@ public class RangedEnemyAttackState : MonoBehaviour, IState
         {
             _passedTime = 0f;
             _joke.Make();
+            OnPlayerDamage?.Invoke();
         }
 
         if (distSq < 255)
