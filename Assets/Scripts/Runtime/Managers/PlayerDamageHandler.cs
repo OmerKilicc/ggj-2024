@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class PlayerDamageHandler : MonoBehaviour
@@ -49,6 +50,10 @@ public class PlayerDamageHandler : MonoBehaviour
 
 	private void SpawnPlayerAtHut()
 	{
-		//TODO: Spawn player to hut
+		//TODO: get to throne room scene to spawn
+		/*
+		transform.position = spawnPoint.position;
+		LevelManager.ReturenToThroneRoom();
+		*/
 	}
 }
