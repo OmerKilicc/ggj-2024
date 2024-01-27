@@ -53,6 +53,15 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""2b50c9f3-b900-4318-8702-6130f3ff35fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -231,6 +240,17 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
                     ""action"": ""LookPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70068d2d-7676-4376-9e04-cbd84b25297e"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -350,6 +370,7 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
         m_Character_Movement = m_Character.FindAction("Movement", throwIfNotFound: true);
         m_Character_NextDialogLine = m_Character.FindAction("NextDialogLine", throwIfNotFound: true);
         m_Character_LookPosition = m_Character.FindAction("LookPosition", throwIfNotFound: true);
+        m_Character_Run = m_Character.FindAction("Run", throwIfNotFound: true);
         // Jokes
         m_Jokes = asset.FindActionMap("Jokes", throwIfNotFound: true);
         m_Jokes_UseJoke = m_Jokes.FindAction("UseJoke", throwIfNotFound: true);
@@ -421,6 +442,7 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_Movement;
     private readonly InputAction m_Character_NextDialogLine;
     private readonly InputAction m_Character_LookPosition;
+    private readonly InputAction m_Character_Run;
     public struct CharacterActions
     {
         private @InputsSystem m_Wrapper;
@@ -428,6 +450,7 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Character_Movement;
         public InputAction @NextDialogLine => m_Wrapper.m_Character_NextDialogLine;
         public InputAction @LookPosition => m_Wrapper.m_Character_LookPosition;
+        public InputAction @Run => m_Wrapper.m_Character_Run;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -446,6 +469,9 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
             @LookPosition.started += instance.OnLookPosition;
             @LookPosition.performed += instance.OnLookPosition;
             @LookPosition.canceled += instance.OnLookPosition;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
         }
 
         private void UnregisterCallbacks(ICharacterActions instance)
@@ -459,6 +485,9 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
             @LookPosition.started -= instance.OnLookPosition;
             @LookPosition.performed -= instance.OnLookPosition;
             @LookPosition.canceled -= instance.OnLookPosition;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
         }
 
         public void RemoveCallbacks(ICharacterActions instance)
@@ -559,6 +588,7 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnNextDialogLine(InputAction.CallbackContext context);
         void OnLookPosition(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
     public interface IJokesActions
     {
