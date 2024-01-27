@@ -67,10 +67,7 @@ public class LevelManager : MonoBehaviour
 
     public async UniTask SpawnPlayer()
     {
-        if (_playerLoaded)
-        {
-            await SceneManager.UnloadSceneAsync(_playerSceneIndex);
-        }
+        await DespawnPlayerIfExists();
 
         await SceneManager.LoadSceneAsync(_playerSceneIndex, LoadSceneMode.Additive);
 
@@ -80,5 +77,13 @@ public class LevelManager : MonoBehaviour
         player.position = spawnPoint.position;
 
         _playerLoaded = true;
+    }
+
+    public async UniTask DespawnPlayerIfExists()
+    {
+        if (_playerLoaded)
+        {
+            await SceneManager.UnloadSceneAsync(_playerSceneIndex);
+        }
     }
 }
