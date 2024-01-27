@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b27fd934a976774f8bbb52eeb278f14, type: 3}
-  m_Name: TestDialog
+  m_Script: {fileID: 11500000, guid: 2d9df9ade1b830241a4c4169e601c853, type: 3}
+  m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _dialogLines:
-  - Talker: Player
-    Text: Dolor Sit AMet
-  - Talker: Enemy
-    Text: Aynen knk
+  _happines: 100
