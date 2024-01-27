@@ -6,5 +6,8 @@ using UnityEngine;
 
 public class PlayerDataSO : ScriptableObject
 {
-	[SerializeField] private float _happines;
+	[SerializeField] private float _defaultHappines = 100;
+
+	private float? _currentHappines = null;
+	public float CurrentHappines { get => _currentHappines ?? _defaultHappines; set => _currentHappines = value; }
 }
