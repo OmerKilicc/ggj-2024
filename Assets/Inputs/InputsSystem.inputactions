@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LookPosition",
+                    "type": "PassThrough",
+                    "id": "a89e5867-6d53-4f37-a536-8c8639ebdef1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -187,6 +196,125 @@
                     "processors": "",
                     "groups": "",
                     "action": "NextDialogLine",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1144341-15d2-4ff4-918b-47017a38ff7c",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Jokes",
+            "id": "a9343950-621e-4ec8-8e29-8d57d96a993d",
+            "actions": [
+                {
+                    "name": "UseJoke",
+                    "type": "Button",
+                    "id": "f03bd5d7-7d4a-4c72-84a3-fb4ab97a5090",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToBaseJoke",
+                    "type": "Button",
+                    "id": "8661d5e0-9c8e-462f-b80d-5cce62dcf2d9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToBigJoke1",
+                    "type": "Button",
+                    "id": "11e1e4cc-d6f5-478e-b2e8-d9af00f9e9ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToBigJoke2",
+                    "type": "Button",
+                    "id": "de9ae3b4-8263-480f-b1e9-f6a9c7c90cf4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToBigJoke3",
+                    "type": "Button",
+                    "id": "b6bd316c-3fe3-4759-a3d3-5bc556fc4a98",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3a4f15fc-4fb1-475c-9e79-3281c4d3960f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseJoke",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5bc6d36-4976-41f0-9122-0bb06902c238",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToBaseJoke",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8f49707-559c-4742-9ed0-a4bd544fcea8",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToBigJoke1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dae78a6b-fc7f-47b2-a3a9-6ed676723444",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToBigJoke2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1a2247d-df47-464c-bc2b-d4cad7db51f4",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToBigJoke3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

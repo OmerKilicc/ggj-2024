@@ -34,7 +34,7 @@ public class RangedJokeProjectile : MonoBehaviour
         _move = true;
 
         _transform.forward = direction;
-        
+
         _speed = speed;
         _damage = damage;
 
@@ -58,9 +58,13 @@ public class RangedJokeProjectile : MonoBehaviour
     private void StopProjectile()
     {
         _move = false;
-        _hitParticles.Play();
 
-        _visuals.SetActive(false);
+        if (_hitParticles != null)
+            _hitParticles.Play();
+
+        if (_visuals != null)
+            _visuals.SetActive(false);
+
         Destroy(gameObject, 5);
     }
 }

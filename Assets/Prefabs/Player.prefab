@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614620479242613151}
+  - component: {fileID: 1535257051129442436}
   - component: {fileID: 384236651262215762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jokes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +33,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6928647556411073269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1535257051129442436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206025709517839462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cd4940f0d925c4d9d04e0fc90f0402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseJokeComponent: {fileID: 384236651262215762}
+  _bigJoke1Component: {fileID: 0}
+  _bigJoke2Component: {fileID: 0}
+  _bigJoke3Component: {fileID: 0}
 --- !u!114 &384236651262215762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +63,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 5
   _projectilSpeed: 10
-  _projectilePrefab: {fileID: 0}
+  _projectilePrefab: {fileID: 6933412103155180141, guid: ac4eed44cd4290b4b838077a130b1f91,
+    type: 3}
 --- !u!1 &5755717598193647874
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,9 +77,10 @@ GameObject:
   - component: {fileID: 8771661627046820322}
   - component: {fileID: 6230377063765998556}
   - component: {fileID: 6234745265709413138}
-  m_Layer: 0
+  - component: {fileID: 8201529100574859607}
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +154,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3afa4085edaf340aec7a18215afb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8201529100574859607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755717598193647874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437db6f83bf3f394cacbd4f2a3187af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 10
 --- !u!1 &6361936304711331346
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +178,7 @@ GameObject:
   - component: {fileID: 5874500889138344622}
   - component: {fileID: 2348385348591015030}
   - component: {fileID: 2359906294397636401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +263,7 @@ GameObject:
   - component: {fileID: 1647518889627201189}
   - component: {fileID: 2667907971471772397}
   - component: {fileID: 5399021345733094961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -44,6 +44,15 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LookPosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""a89e5867-6d53-4f37-a536-8c8639ebdef1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -211,6 +220,125 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
                     ""action"": ""NextDialogLine"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1144341-15d2-4ff4-918b-47017a38ff7c"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Jokes"",
+            ""id"": ""a9343950-621e-4ec8-8e29-8d57d96a993d"",
+            ""actions"": [
+                {
+                    ""name"": ""UseJoke"",
+                    ""type"": ""Button"",
+                    ""id"": ""f03bd5d7-7d4a-4c72-84a3-fb4ab97a5090"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToBaseJoke"",
+                    ""type"": ""Button"",
+                    ""id"": ""8661d5e0-9c8e-462f-b80d-5cce62dcf2d9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToBigJoke1"",
+                    ""type"": ""Button"",
+                    ""id"": ""11e1e4cc-d6f5-478e-b2e8-d9af00f9e9ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToBigJoke2"",
+                    ""type"": ""Button"",
+                    ""id"": ""de9ae3b4-8263-480f-b1e9-f6a9c7c90cf4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToBigJoke3"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6bd316c-3fe3-4759-a3d3-5bc556fc4a98"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3a4f15fc-4fb1-475c-9e79-3281c4d3960f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseJoke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5bc6d36-4976-41f0-9122-0bb06902c238"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToBaseJoke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8f49707-559c-4742-9ed0-a4bd544fcea8"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToBigJoke1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dae78a6b-fc7f-47b2-a3a9-6ed676723444"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToBigJoke2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1a2247d-df47-464c-bc2b-d4cad7db51f4"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToBigJoke3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -221,6 +349,14 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
         m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
         m_Character_Movement = m_Character.FindAction("Movement", throwIfNotFound: true);
         m_Character_NextDialogLine = m_Character.FindAction("NextDialogLine", throwIfNotFound: true);
+        m_Character_LookPosition = m_Character.FindAction("LookPosition", throwIfNotFound: true);
+        // Jokes
+        m_Jokes = asset.FindActionMap("Jokes", throwIfNotFound: true);
+        m_Jokes_UseJoke = m_Jokes.FindAction("UseJoke", throwIfNotFound: true);
+        m_Jokes_SwitchToBaseJoke = m_Jokes.FindAction("SwitchToBaseJoke", throwIfNotFound: true);
+        m_Jokes_SwitchToBigJoke1 = m_Jokes.FindAction("SwitchToBigJoke1", throwIfNotFound: true);
+        m_Jokes_SwitchToBigJoke2 = m_Jokes.FindAction("SwitchToBigJoke2", throwIfNotFound: true);
+        m_Jokes_SwitchToBigJoke3 = m_Jokes.FindAction("SwitchToBigJoke3", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,12 +420,14 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
     private List<ICharacterActions> m_CharacterActionsCallbackInterfaces = new List<ICharacterActions>();
     private readonly InputAction m_Character_Movement;
     private readonly InputAction m_Character_NextDialogLine;
+    private readonly InputAction m_Character_LookPosition;
     public struct CharacterActions
     {
         private @InputsSystem m_Wrapper;
         public CharacterActions(@InputsSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Character_Movement;
         public InputAction @NextDialogLine => m_Wrapper.m_Character_NextDialogLine;
+        public InputAction @LookPosition => m_Wrapper.m_Character_LookPosition;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -305,6 +443,9 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
             @NextDialogLine.started += instance.OnNextDialogLine;
             @NextDialogLine.performed += instance.OnNextDialogLine;
             @NextDialogLine.canceled += instance.OnNextDialogLine;
+            @LookPosition.started += instance.OnLookPosition;
+            @LookPosition.performed += instance.OnLookPosition;
+            @LookPosition.canceled += instance.OnLookPosition;
         }
 
         private void UnregisterCallbacks(ICharacterActions instance)
@@ -315,6 +456,9 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
             @NextDialogLine.started -= instance.OnNextDialogLine;
             @NextDialogLine.performed -= instance.OnNextDialogLine;
             @NextDialogLine.canceled -= instance.OnNextDialogLine;
+            @LookPosition.started -= instance.OnLookPosition;
+            @LookPosition.performed -= instance.OnLookPosition;
+            @LookPosition.canceled -= instance.OnLookPosition;
         }
 
         public void RemoveCallbacks(ICharacterActions instance)
@@ -332,9 +476,96 @@ public partial class @InputsSystem: IInputActionCollection2, IDisposable
         }
     }
     public CharacterActions @Character => new CharacterActions(this);
+
+    // Jokes
+    private readonly InputActionMap m_Jokes;
+    private List<IJokesActions> m_JokesActionsCallbackInterfaces = new List<IJokesActions>();
+    private readonly InputAction m_Jokes_UseJoke;
+    private readonly InputAction m_Jokes_SwitchToBaseJoke;
+    private readonly InputAction m_Jokes_SwitchToBigJoke1;
+    private readonly InputAction m_Jokes_SwitchToBigJoke2;
+    private readonly InputAction m_Jokes_SwitchToBigJoke3;
+    public struct JokesActions
+    {
+        private @InputsSystem m_Wrapper;
+        public JokesActions(@InputsSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @UseJoke => m_Wrapper.m_Jokes_UseJoke;
+        public InputAction @SwitchToBaseJoke => m_Wrapper.m_Jokes_SwitchToBaseJoke;
+        public InputAction @SwitchToBigJoke1 => m_Wrapper.m_Jokes_SwitchToBigJoke1;
+        public InputAction @SwitchToBigJoke2 => m_Wrapper.m_Jokes_SwitchToBigJoke2;
+        public InputAction @SwitchToBigJoke3 => m_Wrapper.m_Jokes_SwitchToBigJoke3;
+        public InputActionMap Get() { return m_Wrapper.m_Jokes; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(JokesActions set) { return set.Get(); }
+        public void AddCallbacks(IJokesActions instance)
+        {
+            if (instance == null || m_Wrapper.m_JokesActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_JokesActionsCallbackInterfaces.Add(instance);
+            @UseJoke.started += instance.OnUseJoke;
+            @UseJoke.performed += instance.OnUseJoke;
+            @UseJoke.canceled += instance.OnUseJoke;
+            @SwitchToBaseJoke.started += instance.OnSwitchToBaseJoke;
+            @SwitchToBaseJoke.performed += instance.OnSwitchToBaseJoke;
+            @SwitchToBaseJoke.canceled += instance.OnSwitchToBaseJoke;
+            @SwitchToBigJoke1.started += instance.OnSwitchToBigJoke1;
+            @SwitchToBigJoke1.performed += instance.OnSwitchToBigJoke1;
+            @SwitchToBigJoke1.canceled += instance.OnSwitchToBigJoke1;
+            @SwitchToBigJoke2.started += instance.OnSwitchToBigJoke2;
+            @SwitchToBigJoke2.performed += instance.OnSwitchToBigJoke2;
+            @SwitchToBigJoke2.canceled += instance.OnSwitchToBigJoke2;
+            @SwitchToBigJoke3.started += instance.OnSwitchToBigJoke3;
+            @SwitchToBigJoke3.performed += instance.OnSwitchToBigJoke3;
+            @SwitchToBigJoke3.canceled += instance.OnSwitchToBigJoke3;
+        }
+
+        private void UnregisterCallbacks(IJokesActions instance)
+        {
+            @UseJoke.started -= instance.OnUseJoke;
+            @UseJoke.performed -= instance.OnUseJoke;
+            @UseJoke.canceled -= instance.OnUseJoke;
+            @SwitchToBaseJoke.started -= instance.OnSwitchToBaseJoke;
+            @SwitchToBaseJoke.performed -= instance.OnSwitchToBaseJoke;
+            @SwitchToBaseJoke.canceled -= instance.OnSwitchToBaseJoke;
+            @SwitchToBigJoke1.started -= instance.OnSwitchToBigJoke1;
+            @SwitchToBigJoke1.performed -= instance.OnSwitchToBigJoke1;
+            @SwitchToBigJoke1.canceled -= instance.OnSwitchToBigJoke1;
+            @SwitchToBigJoke2.started -= instance.OnSwitchToBigJoke2;
+            @SwitchToBigJoke2.performed -= instance.OnSwitchToBigJoke2;
+            @SwitchToBigJoke2.canceled -= instance.OnSwitchToBigJoke2;
+            @SwitchToBigJoke3.started -= instance.OnSwitchToBigJoke3;
+            @SwitchToBigJoke3.performed -= instance.OnSwitchToBigJoke3;
+            @SwitchToBigJoke3.canceled -= instance.OnSwitchToBigJoke3;
+        }
+
+        public void RemoveCallbacks(IJokesActions instance)
+        {
+            if (m_Wrapper.m_JokesActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IJokesActions instance)
+        {
+            foreach (var item in m_Wrapper.m_JokesActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_JokesActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public JokesActions @Jokes => new JokesActions(this);
     public interface ICharacterActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnNextDialogLine(InputAction.CallbackContext context);
+        void OnLookPosition(InputAction.CallbackContext context);
+    }
+    public interface IJokesActions
+    {
+        void OnUseJoke(InputAction.CallbackContext context);
+        void OnSwitchToBaseJoke(InputAction.CallbackContext context);
+        void OnSwitchToBigJoke1(InputAction.CallbackContext context);
+        void OnSwitchToBigJoke2(InputAction.CallbackContext context);
+        void OnSwitchToBigJoke3(InputAction.CallbackContext context);
     }
 }

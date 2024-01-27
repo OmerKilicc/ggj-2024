@@ -11,6 +11,8 @@ TagManager:
   - 
   - Water
   - UI
+  - player
+  - enemy
   - 
   - 
   - 
@@ -33,10 +35,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - player_projectile
+  - enemy_projectile
   m_SortingLayers:
   - name: Default
     uniqueID: 0

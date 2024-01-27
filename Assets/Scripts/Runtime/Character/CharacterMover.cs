@@ -18,7 +18,6 @@ public class CharacterMover : MonoBehaviour, IMover
     private void Update()
     {
         MoveCharacter();
-        FaceCharacter();
     }
 
     public void Move(Vector2 vector)
@@ -34,15 +33,5 @@ public class CharacterMover : MonoBehaviour, IMover
         move *= Time.deltaTime * _moveSpeed;
 
         _controller.Move(move);
-    }
-
-    private void FaceCharacter()
-    {
-        if (_move == Vector3.zero)
-            return;
-
-        float speed = _rotateSpeed * Time.deltaTime;
-
-        _controller.transform.forward = Vector3.Lerp(_controller.transform.forward, _move, speed);
     }
 }

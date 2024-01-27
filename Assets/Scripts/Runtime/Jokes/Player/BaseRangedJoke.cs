@@ -14,6 +14,9 @@ public class BaseRangedJoke : MonoBehaviour, IJoke
 
     private RangedJokeProjectile SpawnProjectile()
     {
-        return Instantiate(_projectilePrefab);
+        RangedJokeProjectile projectile = Instantiate(_projectilePrefab);
+        projectile.transform.position = transform.position;
+
+        return projectile;
     }
 }
