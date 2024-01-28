@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestDialogSO
   m_EditorClassIdentifier: 
   _dialogLines:
-  - Talker: Player
-    Text: Dolor Sit AMet
-  - Talker: Enemy
-    Text: Aynen knk
+  - Talker: King
+    Text: You have 7 days to MAKE ME LAUGH! or you die nothing personal kid.
+  - Talker: Jester
+    Text: Oh ok... whatever LETSGOOOOO
