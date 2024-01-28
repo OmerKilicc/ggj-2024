@@ -7,10 +7,7 @@ public class TimeManager : MonoBehaviour
 	private int _currentDay;
 	public int CurrentDay { get => _currentDay; set => _currentDay = value; }
 
-	[Tooltip("Event to raise when day changes, sends the Current Day value too")]
 	public static event Action<int> OnDayChange;
-
-	[Tooltip("Event to raise when countdown for games end.")]
 	public static event Action OnDaysEnd;
 
 	[Tooltip("Give the maximum number of days the game will be played.")]
@@ -19,7 +16,7 @@ public class TimeManager : MonoBehaviour
 
 	[Tooltip("Give the maximum number of seconds the game day will be.")]
 	[SerializeField]
-	private const float _dayTimer = 600;
+	private float _dayTimer = 600;
 
 	private float _currentDayTime = 600;
 
@@ -38,7 +35,6 @@ public class TimeManager : MonoBehaviour
 
 		if (_currentDayTime <= 0)
 			ChangeDay();
-
 	}
 
 	public void ChangeDay()
@@ -50,11 +46,13 @@ public class TimeManager : MonoBehaviour
 
 	private void NotifyGameEndByDay()
 	{
-		OnDaysEnd.Invoke();
+		Debug.Log("NotifyGameEnd Triggered");
+		OnDaysEnd?.Invoke();
 	}
 
 	private void NotifyDayChange()
 	{
-		OnDayChange.Invoke(CurrentDay);
+		Debug.Log("NotifyDayChange Triggered");
+		OnDayChange?.Invoke(CurrentDay);
 	}
 }

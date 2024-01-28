@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayerScene.unity
     guid: 4abadd7de7939aa408fe67f31d96af08
   - enabled: 1
-    path: Assets/Scenes/ThroneRoom.unity
+    path: Assets/Scenes/ThroneRoomScene.unity
     guid: d18271abff261ef468f4d70e3298919a
   - enabled: 1
     path: Assets/Scenes/SpringSetup.unity
