@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -14,11 +15,16 @@ public class DialogsManager : MonoBehaviour
 	{
 		_playerInput = new InputsSystem();
 		_playerInput.Character.NextDialogLine.performed += ShowNextLineCallback;
+
 		DialogTriggerHandler.DialogStarted += OnDialogStart;
+		DialogTriggerHandler.DialogEnded += OnDialogEnd;
 	}
+
 	private void OnDisable()
 	{
 		DialogTriggerHandler.DialogStarted -= OnDialogStart;
+		DialogTriggerHandler.DialogEnded -= OnDialogEnd;
+
 		_playerInput.Character.NextDialogLine.performed -= ShowNextLineCallback;
 		_playerInput.Dispose();
 	}
@@ -32,10 +38,7 @@ public class DialogsManager : MonoBehaviour
 		}
 		else
 		{
-			_playerInput.Disable();
-
-			_presenter.ShouldCanvasBeOpen = false;
-			_presenter.ChangeCanvasVisibility();
+			OnDialogEnd(_currentDialog);
 		}
 	}
 
@@ -56,5 +59,12 @@ public class DialogsManager : MonoBehaviour
 		_playerInput.Enable();
 	}
 
+
+	private void OnDialogEnd(DialogSO sO)
+	{
+		_playerInput.Disable();
+		_presenter.ShouldCanvasBeOpen = false;
+		_presenter.ChangeCanvasVisibility();
+	}
 
 }

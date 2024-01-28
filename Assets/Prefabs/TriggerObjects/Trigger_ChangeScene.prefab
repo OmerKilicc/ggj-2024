@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 3201350327465329280}
   - component: {fileID: 1102847992454288805}
   m_Layer: 0
-  m_Name: LevelChangeTrigger
+  m_Name: Trigger_ChangeScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

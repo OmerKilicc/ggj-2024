@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 804340332070946486}
   - component: {fileID: 3420596342798935772}
   m_Layer: 0
-  m_Name: SpawnObject
+  m_Name: Trigger_PlayerSpawn
   m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

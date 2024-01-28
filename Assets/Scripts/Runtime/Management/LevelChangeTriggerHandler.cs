@@ -44,7 +44,7 @@ public class LevelChangeTriggerHandler : MonoBehaviour
 		}
 	}
 
-	private void ResetTheTransitionProcess()
+	public void ResetTheTransitionProcess()
 	{
 		_textToDisplay.text = _defaultTriggerMessage;
 
@@ -59,18 +59,33 @@ public class LevelChangeTriggerHandler : MonoBehaviour
 	{
 		_isCoroutineWorking = true;
 
-		//Writes the countdown to TMP
-		for (int i = _secondsToWait; i >= 0; i--)
+		if(_secondsToWait < 0)
 		{
-			_textToDisplay.text = String.Format(_countdownText, i);
-			yield return new WaitForSeconds(1);
+			_textToDisplay.text = _defaultTriggerMessage;
+			yield return new WaitForEndOfFrame();
 		}
 
-		if (levelIndex < 0)
-			LevelManager.Instance.ReturnToThroneRoom();
+		else 
+		{
+			//Writes the countdown to TMP
+			for (int i = _secondsToWait; i >= 0; i--)
+			{
+				_textToDisplay.text = String.Format(_countdownText, i);
+				yield return new WaitForSeconds(1);
+			}
 
-		else
-			LevelManager.Instance.LoadLevel(_indexOfTheLevel);
+			if (levelIndex < 0)
+			{
+				LevelManager.Instance.ReturnToThroneRoom();
+			}
+			else
+			{
+				LevelManager.Instance.LoadLevel(_indexOfTheLevel);
+			}
+		}
+
+
+		
 	}
 
 }
