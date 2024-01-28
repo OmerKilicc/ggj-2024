@@ -31,7 +31,8 @@ public class LevelChangeTriggerHandler : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
-			HandleSceneTransitions();
+			Debug.Log("Teswt");
+			StartCoroutine(HandleSceneTransitions(_indexOfTheLevel));
 		}
 	}
 
@@ -49,17 +50,12 @@ public class LevelChangeTriggerHandler : MonoBehaviour
 
 		if (_isCoroutineWorking)
 		{
-			StopCoroutine(StartCoutdownToTeleport());
+			StopCoroutine(HandleSceneTransitions(_indexOfTheLevel));
 			_isCoroutineWorking = false;
 		}
 	}
 
-	private void HandleSceneTransitions()
-	{
-		StartCoroutine(StartCoutdownToTeleport());
-	}
-
-	private IEnumerator StartCoutdownToTeleport()
+	private IEnumerator HandleSceneTransitions(int levelIndex)
 	{
 		_isCoroutineWorking = true;
 
@@ -70,6 +66,11 @@ public class LevelChangeTriggerHandler : MonoBehaviour
 			yield return new WaitForSeconds(1);
 		}
 
-		LevelManager.Instance.LoadLevel(_indexOfTheLevel);
+		if (levelIndex < 0)
+			LevelManager.Instance.ReturnToThroneRoom();
+
+		else
+			LevelManager.Instance.LoadLevel(_indexOfTheLevel);
 	}
+
 }
