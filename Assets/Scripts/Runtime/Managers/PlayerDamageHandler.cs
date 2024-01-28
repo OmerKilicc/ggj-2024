@@ -30,8 +30,6 @@ public class PlayerDamageHandler : MonoBehaviour, ITarget
 
 	private async void SpawnPlayerAtHut()
 	{
-		Debug.Log("Hit Worked");
-
 		await LevelManager.Instance.ReturnToThroneRoom();
 	}
 
