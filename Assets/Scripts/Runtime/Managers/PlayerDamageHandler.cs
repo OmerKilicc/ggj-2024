@@ -18,15 +18,13 @@ public class PlayerDamageHandler : MonoBehaviour, ITarget
 
 		if (Mathf.Approximately(playerData.CurrentHealth, 0f))
 		{
-			TimeManager timeManager = FindObjectOfType<TimeManager>();
-			HandlePlayerDeath(timeManager);
+			HandlePlayerDeath();
 		}
 	}
 
-	private void HandlePlayerDeath(TimeManager timeManager)
+	private void HandlePlayerDeath()
 	{
 		OnPlayerDeath?.Invoke();
-		timeManager.ChangeDay();
 		SpawnPlayerAtHut();
 	}
 
