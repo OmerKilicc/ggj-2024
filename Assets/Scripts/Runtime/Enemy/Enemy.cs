@@ -1,24 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITarget
 {
-	[SerializeField] private float _enemyBaseHealth = 50f;
+    [SerializeField] Animator _animator;
+    [SerializeField] private float _enemyBaseHealth = 50f;
+    [SerializeField] GameObject _destroyOnDeath;
 
-	public void Hit(float damage)
-	{
-		if (_enemyBaseHealth <= 0)
-			EnemyDeathSequence();
+    public void Hit(float damage)
+    {
+        if (_enemyBaseHealth <= 0)
+            EnemyDeathSequence();
 
-		_enemyBaseHealth -= damage;
-	}
+        _enemyBaseHealth -= damage;
+    }
 
-	private void EnemyDeathSequence()
-	{
-		//TODO: Play enemy laugh animation for 5 seconds, then delete enemy
-		Debug.Log("Enemy Death Test");
-		Destroy(gameObject);
-	}
+    private void EnemyDeathSequence()
+    {
+        _animator.SetTrigger("laugh");
+
+        if (_destroyOnDeath != null)
+            Destroy(_destroyOnDeath);
+
+        if (TryGetComponent<StateMachine>(out var sm))
+        {
+            sm.enabled = false;
+        }
+    }
 }
