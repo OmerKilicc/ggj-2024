@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
         Scene scene = SceneManager.GetSceneByBuildIndex(buildIndex);
         SceneManager.SetActiveScene(scene);
 
-        _loadedScene = index;
+        _loadedScene = buildIndex;
 
         OnLevelLoaded?.Invoke(index);
     }
