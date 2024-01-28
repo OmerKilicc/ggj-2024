@@ -46,7 +46,6 @@ public class TimeManager : MonoBehaviour
 
 	private void NotifyGameEndByDay()
 	{
-		Debug.Log("NotifyGameEnd Triggered");
 		OnDaysEnd?.Invoke();
 	}
 
