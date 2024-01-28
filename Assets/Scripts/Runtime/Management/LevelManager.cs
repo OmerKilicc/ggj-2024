@@ -38,6 +38,9 @@ public class LevelManager : MonoBehaviour
         await SceneManager.LoadSceneAsync(_throneRoomIndex, LoadSceneMode.Additive);
         await SpawnPlayer();
 
+        Scene scene = SceneManager.GetSceneByBuildIndex(_throneRoomIndex);
+        SceneManager.SetActiveScene(scene);
+
         _loadedScene = null;
 
         OnLevelLoaded?.Invoke(-1);
@@ -53,6 +56,9 @@ public class LevelManager : MonoBehaviour
         await SceneManager.LoadSceneAsync(buildIndex, LoadSceneMode.Additive);
 
         await SpawnPlayer();
+
+        Scene scene = SceneManager.GetSceneByBuildIndex(buildIndex);
+        SceneManager.SetActiveScene(scene);
 
         _loadedScene = index;
 
@@ -71,12 +77,20 @@ public class LevelManager : MonoBehaviour
 
         await SceneManager.LoadSceneAsync(_playerSceneIndex, LoadSceneMode.Additive);
 
-        Transform player = GameObject.FindGameObjectWithTag("Player")?.transform ?? null;
-        Transform spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint")?.transform ?? null;
+        Transform playerTransform = Player.Instance?.transform ?? null;
+        CharacterController playerController = Player.Instance?.GetComponent<CharacterController>();
 
-        player.position = spawnPoint.position;
+        Transform spawnPoint = SpawnPoint.Instance?.transform ?? null;
 
-        _playerLoaded = true;
+        if (playerController != null && spawnPoint != null)
+        {
+            playerController.enabled = false;
+
+            playerTransform.position = spawnPoint.position;
+            playerTransform.forward = spawnPoint.forward;
+
+            playerController.enabled = true;
+        }
     }
 
     public async UniTask DespawnPlayerIfExists()

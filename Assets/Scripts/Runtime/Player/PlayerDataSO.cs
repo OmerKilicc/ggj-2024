@@ -8,7 +8,13 @@ public class PlayerDataSO : ScriptableObject
 {
 	[SerializeField] private float _defaultHealth = 100;
 
-	private float? _currentHealth = null;
-	public float CurrentHealth { get => _currentHealth ?? _defaultHealth; set => _currentHealth = value; }
+	[SerializeReference]
+	public float CurrentHealth;
+
+    public void ResetHealth()
+    {
+        CurrentHealth = _defaultHealth;
+    }
+
 }
 
