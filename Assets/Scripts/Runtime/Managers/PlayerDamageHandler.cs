@@ -1,40 +1,22 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
-public class PlayerDamageHandler : MonoBehaviour
+public class PlayerDamageHandler : MonoBehaviour, ITarget
 {
-	[Tooltip("Event to raise when player is dead")]
 	public static event Action OnPlayerDeath;
 
-	[Tooltip("Health to reduce from player when hit.")]
-	[SerializeField]
-	private float _damageAmount;
-
 	[Tooltip("Scriptale Object that stores player data.")]
-	private PlayerDataSO playerData;
+	[SerializeField] private PlayerDataSO playerData;
 
-	private void OnEnable()
+    private void Start()
+    {
+		playerData.ResetHealth();
+    }
+    private void HandlePlayerDamage(float damageAmount)
 	{
-		RangedEnemyAttackState.OnPlayerDamage += HandlePlayerDamage;
-	}
+		playerData.CurrentHealth = Mathf.Clamp(playerData.CurrentHealth - damageAmount, 0f, float.MaxValue);
 
-	private void OnDisable()
-	{
-		RangedEnemyAttackState.OnPlayerDamage -= HandlePlayerDamage;
-	}
-
-	private void HandlePlayerDamage()
-	{
-
-		if (playerData.CurrentHealth > 0) 
-		{
-			playerData.CurrentHealth -= _damageAmount;
-		}
-
-		else 
+		if (Mathf.Approximately(playerData.CurrentHealth, 0f))
 		{
 			TimeManager timeManager = FindObjectOfType<TimeManager>();
 			HandlePlayerDeath(timeManager);
@@ -43,15 +25,20 @@ public class PlayerDamageHandler : MonoBehaviour
 
 	private void HandlePlayerDeath(TimeManager timeManager)
 	{
-		OnPlayerDeath.Invoke();
+		OnPlayerDeath?.Invoke();
 		timeManager.ChangeDay();
 		SpawnPlayerAtHut();
 	}
 
 	private async void SpawnPlayerAtHut()
 	{
+		Debug.Log("Hit Worked");
 
 		await LevelManager.Instance.ReturnToThroneRoom();
-		
 	}
+
+    public void Hit(float damage)
+    {
+		HandlePlayerDamage(damage);
+    }
 }
