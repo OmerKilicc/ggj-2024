@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 10, z: -10}
+  m_FollowOffset: {x: 0, y: 7.5, z: -7.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -310,8 +310,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014196236}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 0.00000002248122, z: -0.000000009312027, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 7.5, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -416,8 +416,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014515063}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 0.00000002248122, z: -0.000000009312027, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 7.5, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 256
   m_IgnoreTag: 
   m_TransparentLayers:
     serializedVersion: 2
@@ -462,22 +462,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 384236651262215762, guid: 870c045b208cd4c41a95c92c333aab40,
-        type: 3}
-      propertyPath: _damage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2372650313362381854, guid: 870c045b208cd4c41a95c92c333aab40,
-        type: 3}
-      propertyPath: playerData
-      value: 
-      objectReference: {fileID: 11400000, guid: 03a05114cd748a646898725fcfb01a90,
-        type: 2}
-    - target: {fileID: 2372650313362381854, guid: 870c045b208cd4c41a95c92c333aab40,
-        type: 3}
-      propertyPath: _damageAmount
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5755717598193647874, guid: 870c045b208cd4c41a95c92c333aab40,
         type: 3}
       propertyPath: m_Name

@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
         Scene scene = SceneManager.GetSceneByBuildIndex(_throneRoomIndex);
         SceneManager.SetActiveScene(scene);
 
-        _loadedScene = null;
+        _loadedScene = _throneRoomIndex;
 
         OnLevelLoaded?.Invoke(-1);
     }
@@ -91,13 +91,13 @@ public class LevelManager : MonoBehaviour
 
             playerController.enabled = true;
         }
+
+        _playerLoaded = true;
     }
 
     public async UniTask DespawnPlayerIfExists()
     {
         if (_playerLoaded)
-        {
             await SceneManager.UnloadSceneAsync(_playerSceneIndex);
-        }
     }
 }

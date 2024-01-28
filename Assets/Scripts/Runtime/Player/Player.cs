@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        print("AWAKE");
         if (Instance != null)
         {
             Destroy(this);

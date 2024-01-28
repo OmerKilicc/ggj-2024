@@ -30,7 +30,7 @@ public class CharacterAnimationController : MonoBehaviour
         _targetVelocity.y = 0f;
         _targetVelocity = Vector3.ClampMagnitude(_targetVelocity, _maxSpeed);
 
-        float offsetAngle = Vector3.Angle(forward, Vector3.forward);
+        float offsetAngle = Vector3.SignedAngle(forward, Vector3.forward, Vector3.up);
         _targetVelocity = Quaternion.AngleAxis(offsetAngle, Vector3.up) * _targetVelocity;
 
         _velocity = Vector3.Lerp(_velocity, _targetVelocity, Time.deltaTime * _lerpSpeed);
